@@ -6,7 +6,8 @@ Vue.use(Vuex)
 const store=new Vuex.Store({
     state:{
         info:[],
-        didian:""
+        didian:"",
+        phone:"暂无绑定手机号哦~"
     },
     mutations:{
         nameupdate(state,action){
@@ -14,6 +15,9 @@ const store=new Vuex.Store({
         },
         loacation(state,action){
           state.didian=action.payload
+        },
+        phone(state,action){
+            state.phone=action.payload
         }
     }
 })

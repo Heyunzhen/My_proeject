@@ -8,7 +8,7 @@
          <dt>
            <image class="avitar" src="/static/images/wodedangxuan (1).png" alt="" />
          </dt>
-         <dd class="phone_number">151***29949</dd>
+         <dd class="phone_number">{{phone}}</dd>
        </dl>
 
       </div>
@@ -54,7 +54,14 @@
 </template>
 
 <script>
+import action from "../../api/request.js"
+import store from "../../Mystore/store.js"
 export default {
+  computed: {
+    phone(){
+      return store.state.phone
+    }
+  },
   data:{
     falg:false
   },
@@ -64,6 +71,7 @@ export default {
     wx.getStorage({ //遮罩的显示与隐藏
       "key":"phone",
       success(res){
+          store.commit({type:"phone",payload:res.data})
           that.falg=false
       },
       fail(err){
@@ -73,6 +81,9 @@ export default {
   },
     methods:{
           getphonenumber(e){
+          var encry=e.target.encryptedData
+          var iv=e.target.iv
+          action.phoneNumber(iv,encry)
           this.falg=false
         },
         no(){

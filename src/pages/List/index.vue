@@ -71,6 +71,7 @@ export default {
       }
     },
     onLoad(){
+    var openid=wx.getStorageSync('openid')
     Fly.interceptors.request.use((request)=>{
      request.headers['openid']=openid
     //可以显式返回request, 也可以不返回，没有返回值时拦截器中默认返回request
