@@ -6,7 +6,7 @@
     </li>
 
       <ul v-if="flag==true">
-            <li v-for="(item,index) in searchdata" :key="index" @click="tips(index)">{{item.title}}</li>
+            <li class="liser" v-for="(item,index) in searchdata" :key="index" @click="tips(index)">{{item.title}}</li>
       </ul>
 
     </div>
@@ -70,5 +70,15 @@ export default {
       }
       .show{
         display:block;
+      }
+      .liser{
+        width:100%;
+        height:40px;
+        display:flex;
+        align-items:center;
+        padding-left:15px;
+        padding-right:5px;
+        border-bottom:2px solid #f5f5f5;
+        box-sizing:border-box;
       }
 </style>

@@ -12,6 +12,7 @@ const store=new Vuex.Store({
     mutations:{
         nameupdate(state,action){
           state.info.push(action.payload)
+          console.log(state.info)
         },
         loacation(state,action){
           state.didian=action.payload

@@ -93,6 +93,16 @@ export default {
               icon: 'success',
               duration: 2000
             })
+            //添加信息成功之后做的数据处理
+
+
+            this.name=""
+            this.time=""
+            this.phone=""
+            this.description=""
+            store.commit({type:'loacation',payload:""})
+            //将全部文本框置空
+
             setTimeout(()=>{
               wx.navigateTo({
                 url:"/pages/List/main"
